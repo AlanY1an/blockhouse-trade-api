@@ -28,6 +28,13 @@ Before running the application, make sure you have the following installed:
 - PostgreSQL (or use AWS RDS for production)
 - AWS EC2 (for deployment)
 
+## API Documentation
+You can access the auto-generated API documentation:
+
+Swagger UI: http://3.137.178.53/docs
+ReDoc: http://3.137.178.53/redoc
+
+
 ## Setup and Installation
 
 ### 1. Clone the Repository
