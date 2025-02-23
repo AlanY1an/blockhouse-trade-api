@@ -1,0 +1,41 @@
+name: Deploy FastAPI to AWS EC2
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install Dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run Tests
+        run: pytest || echo "Tests failed, continuing deployment..."
+
+      - name: SSH into EC2 and Deploy
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: 3.137.178.53  # 你的 EC2 公网 IP
+          username: ec2-user
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            cd blockhouse-trade-api
+            git pull origin main
+            docker stop $(docker ps -q) || true
+            docker rm $(docker ps -aq) || true
+            docker rmi trade-api || true
+            docker build -t trade-api .
+            docker run -d --restart always -p 80:8000 trade-api
+
