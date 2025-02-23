@@ -7,7 +7,7 @@ COPY requirements.txt .
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-# copy project code to docker
+# copy project code to docker container
 COPY . .
 
 
