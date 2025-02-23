@@ -2,7 +2,7 @@
 
 ## Overview
 
-The **Trade API** is a backend service built with **FastAPI** to manage trade orders. It supports **creating orders**, **retrieving orders**, and **storing data** in a **PostgreSQL** database. The application is containerized using **Docker** and deployed on an **AWS EC2** instance.
+The **Trade API** is a backend service built with **FastAPI** to manage trade orders. It supports **creating orders**, **retrieving orders**, and **storing data** in a **SQLite** database. The application is containerized using **Docker** and deployed on an **AWS EC2** instance.
 
 ## Features
 
@@ -14,7 +14,7 @@ The **Trade API** is a backend service built with **FastAPI** to manage trade or
 ## Technologies Used
 
 - **FastAPI**: A modern, fast web framework for building APIs with Python 3.7+.
-- **PostgreSQL**: A powerful, open-source relational database system.
+- **SQLite**: A powerful, open-source relational database system.
 - **Docker**: A platform used for developing, shipping, and running applications in containers.
 - **AWS EC2**: A scalable cloud computing service from Amazon Web Services to host the application.
 - **GitHub Actions**: A CI/CD platform to automate testing and deployment processes.
@@ -25,7 +25,7 @@ Before running the application, make sure you have the following installed:
 
 - Python 3.9+
 - Docker
-- PostgreSQL (or use AWS RDS for production)
+- SQLite (or use AWS RDS for production)
 - AWS EC2 (for deployment)
 
 ## API Documentation
@@ -61,7 +61,7 @@ pip install -r requirements.txt
 
 ### 4. Database Setup
 
-Make sure you have a PostgreSQL database running. Update the database connection URL in the application with your database credentials.
+Make sure you have a SQLite database running. Update the database connection URL in the application with your database credentials.
 
 ### 5. Run the Application Locally
 
